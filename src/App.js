@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Container } from "semantic-ui-react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Users from "./components/user/Users";
+import UserDetails from "./components/pages/UserDetails";
+import About from "./components/pages/About";
+import "semantic-ui-css/semantic.min.css";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar className="main-nav" />
+        <Container style={{ paddingTop: "4em" }}>
+          <Switch>
+            <Route exact path="/" component={Users} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/:uid" component={UserDetails} />
+          </Switch>
+        </Container>
+      </Router>
     </div>
   );
 }
