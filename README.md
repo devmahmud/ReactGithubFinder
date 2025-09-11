@@ -1,68 +1,133 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GitHub Finder
 
-## Available Scripts
+A modern GitHub user discovery application built with React Router v7, TypeScript, and Tailwind CSS.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- 🔍 Search GitHub users by username
+- 👤 View detailed user profiles with statistics
+- 📊 Display user repositories and activity
+- 🎨 Modern, responsive design with dark mode support
+- ⚡️ Built with React Router v7 and TypeScript
+- 🎉 Beautiful Tailwind CSS styling
+- 📱 Mobile-first responsive design
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js 18+ 
+- pnpm (recommended) or npm
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+Install the dependencies:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+pnpm install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Environment Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Copy the example environment file:
+```bash
+cp .env.example .env
+```
 
-### `npm run eject`
+2. Get GitHub API credentials:
+   - Go to [GitHub Developer Settings](https://github.com/settings/applications/new)
+   - Create a new OAuth App
+   - Copy the Client ID and Client Secret
+   - Add them to your `.env` file:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```env
+VITE_REACT_APP_CLIENT_ID=your_github_client_id_here
+VITE_REACT_APP_CLIENT_SECRET=your_github_client_secret_here
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Note:** The app will work without these credentials, but you'll have rate limiting from GitHub's API.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Development
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Start the development server with HMR:
 
-## Learn More
+```bash
+pnpm dev
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Your application will be available at `http://localhost:5173`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+1. **Search Users**: Enter a GitHub username in the search box to find users
+2. **View Profiles**: Click "View Profile" on any user card to see detailed information
+3. **Explore Repositories**: Browse the user's recent repositories and statistics
+4. **Navigate**: Use the navigation bar to switch between Home and About pages
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Building for Production
 
-### Analyzing the Bundle Size
+Create a production build:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```bash
+pnpm build
+```
 
-### Making a Progressive Web App
+## Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Docker Deployment
 
-### Advanced Configuration
+To build and run using Docker:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```bash
+docker build -t my-app .
 
-### Deployment
+# Run the container
+docker run -p 3000:3000 my-app
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+The containerized application can be deployed to any platform that supports Docker, including:
 
-### `npm run build` fails to minify
+- AWS ECS
+- Google Cloud Run
+- Azure Container Apps
+- Digital Ocean App Platform
+- Fly.io
+- Railway
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### DIY Deployment
+
+If you're familiar with deploying Node applications, the built-in app server is production-ready.
+
+Make sure to deploy the output of `npm run build`
+
+```
+├── package.json
+├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
+├── build/
+│   ├── client/    # Static assets
+│   └── server/    # Server-side code
+```
+
+## Technology Stack
+
+- **React Router v7** - Modern routing and data loading
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first CSS framework
+- **GitHub API** - User and repository data
+- **Vite** - Fast build tool and dev server
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Built with ❤️ by Mahmudul Alam using React Router v7.
